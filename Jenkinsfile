@@ -37,7 +37,7 @@ pipeline {
         stage('Container Verification') {
             steps {
                 bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe run -d --name %CONTAINER_NAME% -p 8081:8080 %IMAGE_NAME%:build-%BUILD_NUMBER%'
-                bat 'timeout /t 5'
+                bat 'powershell -Command "Start-Sleep -Seconds 5"'
                 bat 'curl http://localhost:8081/health'
             }
         }
