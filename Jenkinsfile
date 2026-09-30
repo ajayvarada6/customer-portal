@@ -18,13 +18,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'python -m pytest -v'
+                bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m pytest -v'
             }
         }
 
