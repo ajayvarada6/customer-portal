@@ -30,13 +30,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t %IMAGE_NAME%:build-%BUILD_NUMBER% .'
+                bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe build -t %IMAGE_NAME%:build-%BUILD_NUMBER% .'
             }
         }
 
         stage('Container Verification') {
             steps {
-                bat 'docker run -d --name %CONTAINER_NAME% -p 8081:8080 %IMAGE_NAME%:build-%BUILD_NUMBER%'
+                bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe run -d --name %CONTAINER_NAME% -p 8081:8080 %IMAGE_NAME%:build-%BUILD_NUMBER%'
                 bat 'timeout /t 5'
                 bat 'curl http://localhost:8081/health'
             }
@@ -44,8 +44,9 @@ pipeline {
 
         stage('Cleanup') {
             steps {
-                bat 'docker stop %CONTAINER_NAME%'
-                bat 'docker rm %CONTAINER_NAME%'
+                 bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe stop %CONTAINER_NAME%'
+                 bat 'C:\\Users\\ajayv\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe rm %CONTAINER_NAME%'
+                
             }
         }
     }
